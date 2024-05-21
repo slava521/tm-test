@@ -64,3 +64,7 @@ textarea:not([rows]) {
 :target {
     scroll-margin-block: 5ex;
 }
+
+:root {
+    font-size: clamp(0.75rem, 0.3056rem + 2.2222vw, 1rem);
+}

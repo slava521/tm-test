@@ -1,0 +1,20 @@
+.cassettesBlock {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    border: 1px solid #dadce0;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+
+    &__cassettes {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+}

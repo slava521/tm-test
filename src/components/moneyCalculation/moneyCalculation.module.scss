@@ -1,0 +1,22 @@
+.calculation {
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &__form {
+        padding: 20px;
+        border-radius: 10px;
+        background: #e8f0fe;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__result_time {
+        width: 100%;
+        text-align: center;
+    }
+}

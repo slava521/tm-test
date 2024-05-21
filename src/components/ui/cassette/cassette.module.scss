@@ -1,0 +1,37 @@
+.cassette {
+    position: relative;
+    width: clamp(110px, 40%, 130px);
+    height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px;
+    overflow: hidden;
+    font-weight: 500;
+
+    &__banknote {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -40%);
+        height: 80px;
+        width: 35px;
+        background-image: var(--banknote);
+        background-size: 100%;
+        background-position-y: bottom;
+
+        &--left {
+            transform: translate(-60%, -50%) rotate(30deg);
+        }
+
+        &--right {
+            transform: translate(-40%, -50%) rotate(-30deg);
+        }
+    }
+
+    &--disabled {
+        filter: grayscale(100%)
+    }
+}
