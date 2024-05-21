@@ -53,7 +53,7 @@ const CassettesForm: FC<Props> = ({setCassettes}) => {
                 min={1}
                 max={8}
                 name='cassetteCount'
-                label='Кол-во кассет:'
+                label='Кол-во кассет (макс: 8):'
             />
             <div className={classes.cassettesForm__params}>
                 <div className={classes.cassettesForm__columns}>

@@ -58,7 +58,7 @@ const MoneyCalculation: FC<Props> = ({cassettes}) => {
                     min={100}
                     max={200000000}
                     step={100}
-                    label={'Введите сумму, которую необходимо набрать (руб.)'}
+                    label={'Введите сумму, кратную 100, которую необходимо набрать (руб.)'}
                     defaultValue={moneyCount}
                 />
                 <Button value='Рассчитать' disabled={!cassettes}/>
