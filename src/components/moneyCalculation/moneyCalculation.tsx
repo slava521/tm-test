@@ -39,8 +39,8 @@ const MoneyCalculation: FC<Props> = ({cassettes}) => {
             setError(result.error)
         } else {
             setCalculationResult(result.cassettes)
-            setCalculationTiming((timeEnd - timeStart).toFixed(2))
         }
+        setCalculationTiming((timeEnd - timeStart).toFixed(2))
     }
 
     useEffect(() => {
