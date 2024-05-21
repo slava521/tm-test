@@ -17,7 +17,7 @@ const CassettesForm: FC<Props> = ({setCassettes}) => {
 
     const cassettes = []
 
-    for (let i = 0; i<cassetteCount; i++) {
+    for (let i = 1; i<=cassetteCount; i++) {
         cassettes.push(i)
     }
 
@@ -25,7 +25,7 @@ const CassettesForm: FC<Props> = ({setCassettes}) => {
         event.preventDefault()
         const formData = new FormData(event.target as HTMLFormElement);
         const cassettesParams: CassettesParams[] = []
-        for (let i = 0; i<cassetteCount; i++) {
+        for (let i = 1; i<=cassetteCount; i++) {
             const nominal = Number(formData.get(`cassetteNominal${i}`)) as CassetteNominals
             const billsCount = Number(formData.get(`cassetteBillsCount${i}`))
             const status = formData.get(`cassetteStatus${i}`) as CassetteStatuses
@@ -39,7 +39,7 @@ const CassettesForm: FC<Props> = ({setCassettes}) => {
         setCassettes(cassettesParams);
     }
 
-    const handleCassetteCountChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const handleCassetteCountChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const inputValue = +event.currentTarget.value
         setCassetteCount(Math.min(Math.max(inputValue, 1), 8))
     }
@@ -47,13 +47,12 @@ const CassettesForm: FC<Props> = ({setCassettes}) => {
     return (
         <form className={classes.cassettesForm} onSubmit={handleSubmit}>
             <Input
-                type='number'
-                onChange={handleCassetteCountChange}
+                type='select'
+                onSelectChange={handleCassetteCountChange}
                 defaultValue={cassetteCount}
-                min={1}
-                max={8}
+                selectOptions={[1,2,3,4,5,6,7,8]}
                 name='cassetteCount'
-                label='Кол-во кассет (макс: 8):'
+                label='Кол-во кассет:'
             />
             <div className={classes.cassettesForm__params}>
                 <div className={classes.cassettesForm__columns}>

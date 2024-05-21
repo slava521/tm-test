@@ -1,13 +1,14 @@
 'use client'
 
-import {DetailedHTMLProps, FC, HTMLInputTypeAttribute, InputHTMLAttributes, useId} from "react";
+import {ChangeEvent, DetailedHTMLProps, FC, HTMLInputTypeAttribute, InputHTMLAttributes, useId} from "react";
 import classes from "./input.module.scss";
 
 type Props = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
     type: HTMLInputTypeAttribute | 'select';
     label?: string;
     selectOptions?: (number | string)[];
-    serializeOptions?: (option: number | string) => number | string
+    serializeOptions?: (option: number | string) => number | string;
+    onSelectChange?: (event: ChangeEvent<HTMLSelectElement>)=>void
 }
 
 const Input: FC<Props> = (
@@ -16,6 +17,7 @@ const Input: FC<Props> = (
         label,
         selectOptions,
         serializeOptions,
+        onSelectChange,
         ...rest
     }) => {
     const id = useId()
@@ -32,7 +34,7 @@ const Input: FC<Props> = (
                     type={type}
                     {...rest}
                 />
-                : <select id={id} className={classes.input__field} name={rest.name}>
+                : <select id={id} onChange={onSelectChange} className={classes.input__field} name={rest.name}>
                     {selectOptions && selectOptions.map(selectOption =>
                         <option key={selectOption} value={selectOption}>
                             {serializeOptions

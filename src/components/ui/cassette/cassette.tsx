@@ -25,7 +25,7 @@ const Cassette: FC<Props> = ({id, nominal, billsCount, status}) => {
             <div style={banknoteStyle} className={classes.cassette__banknote}/>
             <div style={banknoteStyle}
                  className={classes.cassette__banknote + ' ' + classes['cassette__banknote--right']}/>
-            <span>Кассета №{id+1}</span>
+            <span>Кассета №{id}</span>
             <span>{serializeNominal(nominal)}</span>
             <span>{serializeBillsCount(billsCount)}</span>
             <span>{status}</span>
